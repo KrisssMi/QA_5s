@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Testing (Lab №3)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f8a6eac1-758c-4acf-a66f-a1f1f3cb993b" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1536992266094-82847e1fd431?ixlib=rb-1.2.1&amp;q=80&amp;cs=tinysrgb&amp;fm=jpg&amp;crop=entropy" style="object-position:center 24.409999999999997%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🦋</span></div><h1 class="page-title">Testing (Lab №3)</h1></header><div class="page-body"><h3 id="6365bd55-54a3-44a8-bca4-dd99d8d294f0" class=""><em><strong>Author: </strong></em>Kristina Minevich</h3><h3 id="bf2ec388-9424-40f7-a007-a34e9f0e2b93" class=""><em><strong>App URL: </strong></em> <a href="https://conteshop.by/">https://conteshop.by/</a></h3><h3 id="d312377c-42e1-4500-a54f-03871f970539" class=""><em><strong>Environment:</strong></em></h3><ul id="e2bf23a4-7f02-4d97-b597-c8459a5b07d1" class="bulleted-list"><li style="list-style-type:disc"><strong>Operating system:</strong> Microsoft Windows 10</li></ul><ul id="2ef3d920-a750-4cd4-9dba-6f84148e2913" class="bulleted-list"><li style="list-style-type:disc"><strong>Browser:</strong> Google Chrome</li></ul><h1 id="b3ebd6ba-acbe-444d-a53f-652a9998ed78" class=""><mark class="highlight-teal"><em><strong><strong>Test cases:</strong></strong></em></mark></h1><h2 id="acdca4c3-d7d0-4b15-91ff-811ac8d0bc9f" class=""><mark class="highlight-red_background"><em><strong>Test ID:</strong></em></mark><em><strong> 1</strong></em></h2><p id="0e93220e-c501-48ef-a5e1-5289ee3c895b" class=""><em><strong>Title: </strong></em><span style="border-bottom:0.05em solid">Registration with email and password</span></p><p id="e01517cf-af04-4fa3-8f7d-83f2718ec40b" class=""><em><strong>Pre-requirements:</strong></em></p><ol type="1" id="4146ee14-2f13-44f8-9db2-c2cc53613b64" class="numbered-list" start="1"><li>Opened registration page: <a href="https://www.lcwaikiki.by/ru-RU/BY/register">https://www.lcwaikiki.by/ru-RU/BY/register</a></li></ol><ol type="1" id="e907b1db-b140-49cf-b4dd-ac1fa8aa5383" class="numbered-list" start="2"><li>Had email service : (You can use temp-email: <a href="https://temp-mail.io/ru">https://temp-mail.io/ru</a> )</li></ol><div id="4f66f0a2-1def-48fa-983b-013f2032dcb7" class="column-list"><div id="0fd80c78-08d0-41c1-84c8-37f1be785537" style="width:62.5%" class="column"><table id="1191ea6f-9dc5-47e8-aa40-5596f58c58ab" class="simple-table"><thead class="simple-table-header"><tr id="c927c8ec-9ee6-4648-9c8a-0be0280bba27"><th id="VFpw" class="block-color-brown_background simple-table-header" style="width:261.8000030517578px"><strong>Step</strong></th><th id="CSp?" class="block-color-brown_background simple-table-header" style="width:375.6000061035156px"><strong>Expected result</strong></th></tr></thead><tbody><tr id="576238e4-c8c7-42a6-8b6f-1c13e4e9c3af"><td id="VFpw" class="" style="width:261.8000030517578px">Enter your phone number in the appropriate field</td><td id="CSp?" class="" style="width:375.6000061035156px">The entered phone number is displayed</td></tr><tr id="ea161238-91a4-43cf-9c31-8c86b0972004"><td id="VFpw" class="" style="width:261.8000030517578px">Enter First Name in &quot;Имя&quot; field</td><td id="CSp?" class="" style="width:375.6000061035156px">In the &quot;Имя&quot; field the entered First Name is displayed</td></tr><tr id="7ddeec64-860c-4817-8229-09195b7d60e8"><td id="VFpw" class="" style="width:261.8000030517578px">Enter Last Name in &quot;Фамилия&quot; field</td><td id="CSp?" class="" style="width:375.6000061035156px">In the &quot;Фамилия&quot; field the entered Last Name is displayed</td></tr><tr id="0244ab9d-3b07-4986-8c34-e37ff0ed7e6a"><td id="VFpw" class="" style="width:261.8000030517578px">Enter email in &quot;Электронная почта&quot; field</td><td id="CSp?" class="" style="width:375.6000061035156px">In the &quot;Электронная почта&quot; field the entered e-mail is displayed</td></tr><tr id="92caca4c-0d7a-4818-9b98-7348da2119a2"><td id="VFpw" class="" style="width:261.8000030517578px">Choose gender: Female/Male</td><td id="CSp?" class="" style="width:375.6000061035156px">Checkbox “Пол&quot; should be checked</td></tr><tr id="3ca53b14-469f-4b05-8cc5-e73087881ed5"><td id="VFpw" class="" style="width:261.8000030517578px">Click on checkbox in &quot;Подписаться на новости”</td><td id="CSp?" class="" style="width:375.6000061035156px">Checkbox “Подписаться на новости&quot; should be checked</td></tr><tr id="34834cf8-7bb3-4b97-a699-c2b5deccf636"><td id="VFpw" class="" style="width:261.8000030517578px">Click on button &quot;Зарегистрироваться”</td><td id="CSp?" class="" style="width:375.6000061035156px">You should see next text on the page &quot;Ваша регистрация успешно выполнена.”</td></tr></tbody></table></div><div id="c0669f1e-2abd-41e9-8a97-8f6554dc928b" style="width:37.5%" class="column"><figure id="11e31160-ecb1-456f-81bc-5ae17abf2e88" class="image"><a href="Testing%20(Lab%20%E2%84%963)%20f8a6eac1758c4acfa66fa1f1f3cb993b/photo_2022-09-24_15-42-58.jpg"><img style="width:336px" src="Testing%20(Lab%20%E2%84%963)%20f8a6eac1758c4acfa66fa1f1f3cb993b/photo_2022-09-24_15-42-58.jpg"/></a></figure></div></div><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="f421178d-f009-40fa-b1a9-d2430c6020d4"><div style="font-size:1.5em"><span class="icon">✅</span></div><div style="width:100%">The test was successfully passed.</div></figure><p id="a8cf7a24-91e3-4e0a-b6cb-23c88f13a6dd" class="">
+</p><p id="0a0daf54-ac61-4b04-811e-bfdcb2ce441a" class="">
+</p><h2 id="e5ef423b-ba65-4c33-96bb-a986246b6e25" class=""><mark class="highlight-red_background"><em><strong>Test ID:</strong></em></mark><em><strong> 2</strong></em></h2><p id="f8b0556d-a2f6-4cc5-9e8f-d7aaf2c61e3a" class=""><em><strong>Title: </strong></em><span style="border-bottom:0.05em solid">Skirt search</span></p><p id="a9c95ae0-8599-4d8d-acc3-911487189975" class=""><em><strong>Pre-requirements:</strong></em></p><ol type="1" id="04b47fe1-ef1d-4395-a1f7-95129e35b185" class="numbered-list" start="1"><li>Opened main page: <a href="https://conteshop.by/">https://conteshop.by/</a></li></ol><div id="d06808d8-6f12-4d3b-b385-36c28dfa2d22" class="column-list"><div id="57bfda67-52bb-4b98-9a9b-091d832f8762" style="width:62.5%" class="column"><table id="81762cf6-b23c-4264-b9e7-4aeaddb80a53" class="simple-table"><thead class="simple-table-header"><tr id="644edb7c-8a62-44b0-a6dd-b031210aa5a5"><th id="_RRY" class="block-color-default simple-table-header" style="width:312px">Step</th><th id="]Ogu" class="block-color-brown_background simple-table-header" style="width:324.6000061035156px"><strong>Expected result</strong></th></tr></thead><tbody><tr id="470c871d-185d-45c2-aa09-9cffacc2219b"><td id="_RRY" class="block-color-default" style="width:312px">At the top of the site click on the &quot;Искать по сайту&quot; field</td><td id="]Ogu" class="" style="width:324.6000061035156px">Focused on this field</td></tr><tr id="8e454051-5b24-4ad5-9b5c-d377233fc528"><td id="_RRY" class="block-color-default" style="width:312px">Enter &quot;Юбка&quot; in &quot;Поиск&quot; field</td><td id="]Ogu" class="" style="width:324.6000061035156px">In the &quot;Искать по сайту&quot; field the entered text is displayed</td></tr><tr id="372a34b1-b050-4748-8560-2d48d104c8e2"><td id="_RRY" class="block-color-default" style="width:312px">Click &quot;Найти&quot; button to the right of &quot;Найти&quot; field</td><td id="]Ogu" class="" style="width:324.6000061035156px">Opened the page with the results of the search for &quot;Юбка”</td></tr></tbody></table></div><div id="0205a133-2aa2-4e1e-9251-ef2ff439b1a4" style="width:37.5%" class="column"><figure id="d35fa2a3-6fb9-4081-a74e-7fb0bdae3dc7" class="image"><a href="Testing%20(Lab%20%E2%84%963)%20f8a6eac1758c4acfa66fa1f1f3cb993b/photo_2022-09-24_15-48-06.jpg"><img style="width:336px" src="Testing%20(Lab%20%E2%84%963)%20f8a6eac1758c4acfa66fa1f1f3cb993b/photo_2022-09-24_15-48-06.jpg"/></a></figure><p id="945a1ece-cdf3-4833-9062-ad3de20789b8" class="">
+</p><p id="67a6d7ed-f1cc-4ce5-ae11-0ab956415750" class="">
+</p></div></div><figure id="cd243412-6cb9-42f5-a9bb-634fb267307c" class="image" style="text-align:left"><a href="Testing%20(Lab%20%E2%84%963)%20f8a6eac1758c4acfa66fa1f1f3cb993b/photo_2022-09-24_15-49-18.jpg"><img style="width:1056px" src="Testing%20(Lab%20%E2%84%963)%20f8a6eac1758c4acfa66fa1f1f3cb993b/photo_2022-09-24_15-49-18.jpg"/></a></figure><p id="9aacb176-0286-4204-86f7-1ad7f08be321" class="">
+</p><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="412cfde7-08bb-48fc-b030-4997f25e99ff"><div style="font-size:1.5em"><span class="icon">✅</span></div><div style="width:100%">The test was successfully passed.</div></figure><p id="049859f2-9527-4769-bb64-dfd2c41f0d45" class="">
+</p><p id="899765fe-6815-44df-a857-cd7f4c6a01d6" class="">
+</p><h2 id="e0e00880-dbf1-4fd3-b90d-29f0bec828b0" class=""><mark class="highlight-red_background"><em><strong>Test ID:</strong></em></mark><em><strong> 3</strong></em></h2><p id="cc144e06-affd-4144-9b98-b352ca1a7167" class=""><em><strong>Title: </strong></em><span style="border-bottom:0.05em solid">Adding skirt with size M to the bucket</span></p><p id="994112f6-7c11-4c00-a25b-b610b8b471f4" class=""><em><strong>Pre-requirements:</strong></em></p><p id="f99a3fa7-fc3d-4844-89a5-3ae022b25e90" class="">1. Opened any t-shirt page: <a href="https://conteshop.by/ru/conte/yubka-jenskaya-mini-yubka-iz-ekokoji-s-effektom-metallik-lu-1965-dusty-rose">https://conteshop.by/ru/catalogsearch/result?q=Юбка</a></p><div id="3f127403-5511-4bbe-9ac1-25d8c7a28c70" class="column-list"><div id="b04866a6-c25d-4faa-bf03-a106df94de3d" style="width:43.75%" class="column"><table id="180fdf20-383a-48db-aa2c-6e2a6f007d37" class="simple-table"><thead class="simple-table-header"><tr id="d3bbcd38-ef59-479b-8645-90469d06a077"><th id="zIiG" class="block-color-brown_background simple-table-header" style="width:189.60000610351562px"><strong>Step</strong></th><th id="r@DZ" class="block-color-brown_background simple-table-header" style="width:255.39999389648438px"><strong>Expected result</strong></th></tr></thead><tbody><tr id="6f628de9-5b2f-4cca-af08-80fed3cdda91"><td id="zIiG" class="" style="width:189.60000610351562px">Select size M in the sizes section</td><td id="r@DZ" class="" style="width:255.39999389648438px">Letter M should be selected and highlighted in a black frame</td></tr><tr id="8a5b93ea-4295-4b34-94fd-2925e4649d0a"><td id="zIiG" class="" style="width:189.60000610351562px">Specify the quantity of the product (click on &quot;+&quot;, in case of adding one more thing)</td><td id="r@DZ" class="" style="width:255.39999389648438px">When adding the quantity of the product automatically changes</td></tr><tr id="df0b3cea-8d4b-45d4-8b0b-d72855a31701"><td id="zIiG" class="" style="width:189.60000610351562px">Click &quot;Добавить в корзину&quot; button under size section</td><td id="r@DZ" class="" style="width:255.39999389648438px">A pop-up window appears that the product has been added to the cart</td></tr><tr id="97d799c8-dc5a-442b-a36d-402f78ae2e8e"><td id="zIiG" class="" style="width:189.60000610351562px">Click on the icon of Bag in the header section</td><td id="r@DZ" class="" style="width:255.39999389648438px">The shopping cart page opened with chose skirt M-size in it</td></tr></tbody></table></div><div id="9640de0a-f5f8-4cda-9f5d-dcd2006d25a4" style="width:56.25%" class="column"><figure id="ba000117-31dc-466b-92a6-2923d5fff51e" class="image"><a href="Testing%20(Lab%20%E2%84%963)%20f8a6eac1758c4acfa66fa1f1f3cb993b/photo_2022-09-24_16-26-34.jpg"><img style="width:624px" src="Testing%20(Lab%20%E2%84%963)%20f8a6eac1758c4acfa66fa1f1f3cb993b/photo_2022-09-24_16-26-34.jpg"/></a></figure></div></div><div id="808fc2c8-56b9-4da6-9d07-adc2cb886558" class="column-list"><div id="a8aaeefd-f579-4c4b-bed9-89bdd93669a6" style="width:25%" class="column"><figure id="891b9808-ee7a-4caa-ace1-0e5356d228da" class="image" style="text-align:left"><a href="Testing%20(Lab%20%E2%84%963)%20f8a6eac1758c4acfa66fa1f1f3cb993b/photo_2022-09-24_16-26-35.jpg"><img style="width:288px" src="Testing%20(Lab%20%E2%84%963)%20f8a6eac1758c4acfa66fa1f1f3cb993b/photo_2022-09-24_16-26-35.jpg"/></a></figure></div><div id="95eba676-d234-4ec0-8646-e4889f4fee87" style="width:75%" class="column"><figure id="23ac89a7-b7a4-4d6d-8c07-236f1b02f261" class="image"><a href="Testing%20(Lab%20%E2%84%963)%20f8a6eac1758c4acfa66fa1f1f3cb993b/photo_2022-09-24_16-26-37.jpg"><img style="width:672px" src="Testing%20(Lab%20%E2%84%963)%20f8a6eac1758c4acfa66fa1f1f3cb993b/photo_2022-09-24_16-26-37.jpg"/></a></figure><p id="0c24d800-4dbc-4961-a210-ca919174895a" class="">
+</p></div></div><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1113f2ff-4f34-472d-a180-49572c761cd9"><div style="font-size:1.5em"><span class="icon">✅</span></div><div style="width:100%">The test was successfully passed.</div></figure><blockquote id="7e97a0c4-fb93-4672-945a-7b8742db666b" class=""><strong>Verdict</strong>: <mark class="highlight-teal">All tests passed.</mark></blockquote></div></article></body></html>
